@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>[RF] Fertile Fields [1.0]</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+
+            <operations>
+                
+                <!-- Remove fertilizer cost from hydroponics -->
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="HydroponicsBasin"]/costList/Fertilizer</xpath>
+                </li>
+
+                <!-- Remove Brick category -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="RFFBricks"]/stuffProps/categories</xpath>
+                    <value>
+                        <categories>
+                            <li>Stony</li>
+                        </categories>
+                    </value>
+                </li>
+ 
+                <!-- rotted mush as plant matter -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="RottedMush"]/thingCategories</xpath>
+                    <value>
+                        <thingCategories>
+                            <li>PlantMatter</li>
+                        </thingCategories>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    
+</Patch>

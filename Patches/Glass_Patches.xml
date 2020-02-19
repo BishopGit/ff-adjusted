@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>[RF] Fertile Fields [1.0]</li>
+            <li>[JPT] Open The Windows</li>
+            <li>Dubs Skylights</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+
+            <operations>
+
+
+                <!-- Reduce cost by 5 steel, and replace with GlassPane -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="ReinforcedOpenWindow"]/costStuffCount</xpath>
+                    <value>
+                        <costStuffCount>40</costStuffCount>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="LargeReinforcedOpenWindow"]/costStuffCount</xpath>
+                    <value>
+                        <costStuffCount>120</costStuffCount>
+                    </value>
+                </li>
+
+                <!-- Allow stony stuff for windows-->
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="OpenWindow"]/stuffCategories</xpath>
+                    <value>
+                        <li>Stony</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="LargeOpenWindow"]/stuffCategories</xpath>
+                    <value>
+                        <li>Stony</li>
+                    </value>
+                </li>
+
+
+                <!-- Reduce recipe users -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="SmeltGlass"]/recipeUsers</xpath>
+                    <value>
+                        <recipeUsers>
+                            <li>ElectricSmelter</li>
+                        </recipeUsers>
+                    </value>
+                </li>
+
+                <!-- Label cleaning -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="GlassPane"]/label</xpath>
+                    <value>
+                        <label>glass pane</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="RawCompost"]/label</xpath>
+                    <value>
+                        <label>raw compost</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="Fertilizer"]/label</xpath>
+                    <value>
+                        <label>fertilizer</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="CrushedRocks"]/label</xpath>
+                    <value>
+                        <label>crushed rocks</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="PileofDirt"]/label</xpath>
+                    <value>
+                        <label>pile of dirt</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="SandPile"]/label</xpath>
+                    <value>
+                        <label>pile of sand</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="RFFClay"]/label</xpath>
+                    <value>
+                        <label>clay</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="OpenWindow"]/label</xpath>
+                    <value>
+                        <label>window</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="LargeOpenWindow"]/label</xpath>
+                    <value>
+                        <label>large window</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="ReinforcedOpenWindow"]/label</xpath>
+                    <value>
+                        <label>reinforced window</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="LargeReinforcedOpenWindow"]/label</xpath>
+                    <value>
+                        <label>large reinforced window</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="SimpleOpenWindow"]/label</xpath>
+                    <value>
+                        <label>rustic window</label>
+                    </value>
+                </li>
+
+
+            </operations>
+        </match>
+    </Operation>
+</Patch>

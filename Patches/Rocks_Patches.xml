@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>[RF] Fertile Fields [1.0]</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+
+            <operations>
+                
+                <!-- Make 30 instead of 24 bricks -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="MakeFastBricks"]/products</xpath>
+                    <value>
+                        <products>
+                            <RFFBricks>24</RFFBricks>
+                        </products>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="MakeFastBricks"]/label</xpath>
+                    <value>
+                        <label>fire bricks</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="MakeFastBricks"]/workAmount</xpath>
+                    <value>
+                        <!-- 1600 base work to make 20 stone blocks from 1x chunk -->
+                        <!-- brick recipe allows 1x chunk to make 30 bricks (blocks) -->
+                        <!-- extra work needed, to get more bricks from 1 chunk -->
+                        <workAmount>1600</workAmount>
+                    </value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeBricks"]</xpath>
+                </li>
+                <!-- Make bricks same value/mass as core blocks -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="RFFBricks"]/statBases</xpath>
+                    <value>
+                        <statBases>
+                            <MarketValue>0.9</MarketValue>
+                            <!-- 20kg of resources used to make 24 bricks -->
+                            <Mass>0.8</Mass>
+                        </statBases>
+                    </value>
+                </li>
+                <!-- Reduce commonality to half rate of regular stone blocks -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="RFFBricks"]/stuffProps/commonality</xpath>
+                    <value>
+                        <commonality>0.10</commonality>
+                    </value>
+                </li>
+
+                <!-- Change mass of brick precursors -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="SandPile"]/statBases/Mass</xpath>
+                    <value>
+                        <Mass>10</Mass>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="RFFClay"]/statBases/Mass</xpath>
+                    <value>
+                        <Mass>10</Mass>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="PileofDirt"]/statBases</xpath>
+                    <value>
+                        <statBases>
+                            <MarketValue>3.0</MarketValue>
+                            <Mass>10</Mass>
+                        </statBases>
+                    </value>
+                </li>
+                
+                <!-- Change and remove recipes -->
+                <!-- Eliminating RockMill -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="SplitDirt2"]/recipeUsers</xpath>
+                    <value>
+                        <recipeUsers>
+                            <li>TableStonecutter</li>
+                        </recipeUsers>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="DirtToClay2"]/recipeUsers</xpath>
+                    <value>
+                        <recipeUsers>
+                            <li>TableStonecutter</li>
+                        </recipeUsers>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeCrushedRocksSlow"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeCrushedRocksSlowBlock"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeSandSlow"]</xpath>
+                </li>
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="MakeCrushedRocks"]/recipeUsers</xpath>
+                    <value>
+                        <recipeUsers>
+                            <li>TableStonecutter</li>
+                        </recipeUsers>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="MakeCrushedRocksBlock"]/recipeUsers</xpath>
+                    <value>
+                        <recipeUsers>
+                            <li>TableStonecutter</li>
+                        </recipeUsers>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="MakeSand"]/recipeUsers</xpath>
+                    <value>
+                        <recipeUsers>
+                            <li>TableStonecutter</li>
+                        </recipeUsers>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="MakeClay"]/recipeUsers</xpath>
+                    <value>
+                        <recipeUsers>
+                            <li>TableStonecutter</li>
+                        </recipeUsers>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="MakeDirtEfficient"]/recipeUsers</xpath>
+                    <value>
+                        <recipeUsers>
+                            <li>TableStonecutter</li>
+                        </recipeUsers>
+                    </value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeCrushedRocks5"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeSand5"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeClay5"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeDirt5"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeDirt5Efficient"]</xpath>
+                </li>
+
+                <!-- Compost recipes -->
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeCompost"]</xpath>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef[defName="MakeCompost5"]/label</xpath>
+                    <value>
+                        <label>Make raw compost</label>
+                    </value>
+                </li>
+
+                <!-- Remove rockmill stonecutting recipes -->
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="Make_StoneBlocksAnyRM"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="Make_StoneBlocksSandstoneRM"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="Make_StoneBlocksGraniteRM"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="Make_StoneBlocksLimestoneRM"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="Make_StoneBlocksSlateRM"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="Make_StoneBlocksMarbleRM"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[@Name="RFF_MakeStoneBlocksBase"]</xpath>
+                </li>
+
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/WorkGiverDef[defName="DoBillsUseRockMill"]</xpath>
+                </li>
+                <!-- Remove rockmill -->
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="RockMill"]</xpath>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+</Patch>
+
+

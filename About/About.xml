@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Fertile Fields - Adjusted</name>
+    <author>Bishop</author>
+    <supportedVersions>
+        <li>1.0</li>
+    </supportedVersions>
+    <url>https://github.com/BishopGit/ff-adjusted</url>
+    <description>A few simple patches when using Fertile Fields mod.</description>
+</ModMetaData>
